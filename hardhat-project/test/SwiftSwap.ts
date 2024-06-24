@@ -5,6 +5,7 @@ import { getAddress, parseEther } from 'viem';
 import 'dotenv/config';
 import { erc20 } from '../typechain-types/factories/@openzeppelin/contracts/token';
 import { IERC20 } from '../typechain-types';
+import exp from 'constants';
 
 describe('SwiftSwap', function () {
     const routerAddress = getAddress(
@@ -195,6 +196,26 @@ describe('SwiftSwap', function () {
             expect(args.amountOut).to.equal(269814205724100n);
         });
 
+        it('should revert if amount in is less or equal than 0', async function () {
+            const { swiftSwap } = await loadFixture(deploySwiftSwapFixture);
+
+            try {
+                await swiftSwap.write.swapExactIn([
+                    daiAddress,
+                    wethAddress,
+                    0n,
+                    10000n
+                ]);
+            } catch (_err: unknown) {
+                expect(_err).to.be.instanceOf(Error);
+
+                const error = _err as Error;
+                expect(error.message).to.contain(
+                    'amount must be greater than 0'
+                );
+            }
+        });
+
         it('should swap tokens correctly for exact output', async function () {
             const { swiftSwap, owner } = await loadFixture(
                 deploySwiftSwapFixture
@@ -237,6 +258,46 @@ describe('SwiftSwap', function () {
             expect(args.tokenOut).to.equal(wethAddress.toString());
             expect(args.amountOut).to.equal(amountOut);
             expect(args.amountIn).to.equal(370625406148991682n);
+        });
+
+        it('should revert if amount out is less or equal than 0', async function () {
+            const { swiftSwap } = await loadFixture(deploySwiftSwapFixture);
+
+            try {
+                await swiftSwap.write.swapExactOut([
+                    daiAddress,
+                    wethAddress,
+                    0n,
+                    10000n
+                ]);
+            } catch (_err: unknown) {
+                expect(_err).to.be.instanceOf(Error);
+
+                const error = _err as Error;
+                expect(error.message).to.contain(
+                    'both amounts must be greater than 0'
+                );
+            }
+        });
+
+        it('should revert if amount in maximum is less or equal than 0', async function () {
+            const { swiftSwap } = await loadFixture(deploySwiftSwapFixture);
+
+            try {
+                await swiftSwap.write.swapExactOut([
+                    daiAddress,
+                    wethAddress,
+                    10000n,
+                    0n
+                ]);
+            } catch (_err: unknown) {
+                expect(_err).to.be.instanceOf(Error);
+
+                const error = _err as Error;
+                expect(error.message).to.contain(
+                    'both amounts must be greater than 0'
+                );
+            }
         });
     });
 });
