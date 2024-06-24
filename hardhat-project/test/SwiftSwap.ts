@@ -5,7 +5,6 @@ import { getAddress, parseEther } from 'viem';
 import 'dotenv/config';
 import { erc20 } from '../typechain-types/factories/@openzeppelin/contracts/token';
 import { IERC20 } from '../typechain-types';
-import exp from 'constants';
 
 describe('SwiftSwap', function () {
     const routerAddress = getAddress(
