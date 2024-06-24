@@ -2,19 +2,23 @@
 pragma solidity ^0.8.24;
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
+import "./interfaces/ISwapRouter02.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/IQuoterV2.sol";
 import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+import "hardhat/console.sol";
 
 /// @title SwiftSwap
 /// @dev This contract allows for efficient swapping of tokens using Uniswap V3.
 contract SwiftSwap is Initializable {
     // 0.3% is assumed to handle medium risk pairs
     uint24 public constant poolFee = 3000;
-    ISwapRouter public swapRouter;
+    ISwapRouter02 public swapRouter;
     IQuoterV2 public quoter;
 
     event Swap(
+        address indexed sender,
         address indexed tokenIn,
         address indexed tokenOut,
         uint256 amountIn,
@@ -43,7 +47,7 @@ contract SwiftSwap is Initializable {
     /// @param _swapRouter The address of the Uniswap V3 SwapRouter.
     /// @param _quoter The address of the Uniswap V3 Quoter.
     function initialize(
-        ISwapRouter _swapRouter,
+        ISwapRouter02 _swapRouter,
         IQuoterV2 _quoter
     ) public initializer {
         swapRouter = _swapRouter;
@@ -126,7 +130,8 @@ contract SwiftSwap is Initializable {
     function swapExactIn(
         address tokenIn,
         address tokenOut,
-        uint256 amountIn
+        uint256 amountIn,
+        uint256 amountOutMinimum
     ) public {
         require(amountIn > 0, "amount must be greater than 0");
 
@@ -139,22 +144,20 @@ contract SwiftSwap is Initializable {
 
         TransferHelper.safeApprove(tokenIn, address(swapRouter), amountIn);
 
-        ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
+        IV3SwapRouter.ExactInputSingleParams memory params = IV3SwapRouter
             .ExactInputSingleParams({
                 tokenIn: tokenIn,
                 tokenOut: tokenOut,
                 fee: poolFee,
                 recipient: msg.sender,
-                // 5 minutes from the current block timestamp
-                deadline: block.timestamp + 300,
                 amountIn: amountIn,
-                amountOutMinimum: 0,
+                amountOutMinimum: amountOutMinimum,
                 sqrtPriceLimitX96: 0
             });
 
         uint256 amountOut = swapRouter.exactInputSingle(params);
 
-        emit Swap(tokenIn, tokenOut, amountIn, amountOut);
+        emit Swap(msg.sender, tokenIn, tokenOut, amountIn, amountOut);
     }
 
     /// @notice Swaps an input token for an exact output amount of another token, excess is refunded.
@@ -186,14 +189,12 @@ contract SwiftSwap is Initializable {
             amountInMaximum
         );
 
-        ISwapRouter.ExactOutputSingleParams memory params = ISwapRouter
+        IV3SwapRouter.ExactOutputSingleParams memory params = IV3SwapRouter
             .ExactOutputSingleParams({
                 tokenIn: tokenIn,
                 tokenOut: tokenOut,
                 fee: poolFee,
                 recipient: msg.sender,
-                // 5 minutes from the current block timestamp
-                deadline: block.timestamp + 300,
                 amountOut: amountOut,
                 amountInMaximum: amountInMaximum,
                 sqrtPriceLimitX96: 0
@@ -211,6 +212,6 @@ contract SwiftSwap is Initializable {
             );
         }
 
-        emit Swap(tokenIn, tokenOut, amountIn, amountOut);
+        emit Swap(msg.sender, tokenIn, tokenOut, amountIn, amountOut);
     }
 }
