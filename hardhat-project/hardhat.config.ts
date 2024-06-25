@@ -1,6 +1,8 @@
 import type { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox-viem';
+import '@nomicfoundation/hardhat-network-helpers';
 import '@openzeppelin/hardhat-upgrades';
+import '@typechain/hardhat';
 import 'dotenv/config';
 
 const config: HardhatUserConfig = {
@@ -19,7 +21,7 @@ const config: HardhatUserConfig = {
             chainId: 1,
             forking: {
                 url: `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
-                blockNumber: 15360000
+                blockNumber: 19920400
             },
             accounts: {
                 mnemonic: process.env.MNEMONIC,
