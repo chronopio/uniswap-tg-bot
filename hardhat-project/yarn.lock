@@ -599,18 +599,18 @@
     debug "^4.1.1"
     lodash.isequal "^4.5.0"
 
-"@nomicfoundation/hardhat-ignition-viem@^0.15.0":
-  version "0.15.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-ignition-viem/-/hardhat-ignition-viem-0.15.4.tgz#57e2f050e9c1e8d201e233194f611b9229052c89"
-  integrity sha512-GILW9buiIbrkAoyT/MtF8xr9KMr1G/u1jABFxElmXP4jsp5ABSQ+aa791gxTP6HyQ6sNbq2wVvOI3PavcM6K6Q==
+"@nomicfoundation/hardhat-ignition-viem@^0.15.5":
+  version "0.15.5"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-ignition-viem/-/hardhat-ignition-viem-0.15.5.tgz#a4e966b48181928b14645e84a769b750752060ce"
+  integrity sha512-+OV6LNAJHg94pvu5znbkS1qVi6YKyD0jWSy8L6dT9Aw4uvuOKVB8bczGUAy74T7/8+CVFtD7nJg1m4nRV+0UPQ==
 
-"@nomicfoundation/hardhat-ignition@^0.15.0":
-  version "0.15.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-ignition/-/hardhat-ignition-0.15.4.tgz#20d6bec0274b135bec1a6c00d7a9e1a9f579322c"
-  integrity sha512-x1lhLN9ZRSJ9eiNY9AoinMdeQeU4LDQSQOIw90W9DiZIG/g9YUzcTEIY58QTi2TZOF8YFiF6vJqLSePCpi8R1Q==
+"@nomicfoundation/hardhat-ignition@^0.15.5":
+  version "0.15.5"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-ignition/-/hardhat-ignition-0.15.5.tgz#6da613732a3d9829a40f6ee6c95fb2db012ebdce"
+  integrity sha512-Y5nhFXFqt4owA6Ooag8ZBFDF2RAZElMXViknVIsi3m45pbQimS50ti6FU8HxfRkDnBARa40CIn7UGV0hrelzDw==
   dependencies:
-    "@nomicfoundation/ignition-core" "^0.15.4"
-    "@nomicfoundation/ignition-ui" "^0.15.4"
+    "@nomicfoundation/ignition-core" "^0.15.5"
+    "@nomicfoundation/ignition-ui" "^0.15.5"
     chalk "^4.0.0"
     debug "^4.3.2"
     fs-extra "^10.0.0"
@@ -630,7 +630,7 @@
   dependencies:
     chai-as-promised "^7.1.1"
 
-"@nomicfoundation/hardhat-verify@^2.0.0":
+"@nomicfoundation/hardhat-verify@^2.0.8":
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-verify/-/hardhat-verify-2.0.8.tgz#6a77dc03de990a1a3aa8e6dc073c393263dbf258"
   integrity sha512-x/OYya7A2Kcz+3W/J78dyDHxr0ezU23DKTrRKfy5wDPCnePqnr79vm8EXqX3gYps6IjPBYyGPZ9K6E5BnrWx5Q==
@@ -645,7 +645,7 @@
     table "^6.8.0"
     undici "^5.14.0"
 
-"@nomicfoundation/hardhat-viem@^2.0.0":
+"@nomicfoundation/hardhat-viem@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-viem/-/hardhat-viem-2.0.2.tgz#91d7a6d3e66c93bc39b2322420a1bad82360df7d"
   integrity sha512-Ek2lGjrt15IdDkq5+24CGeAQzlr/4UwUx0UKx6IVW/QOHGr1bk21KipUugFIyEjEltcgyUJcPJ02XFTcjgnwZA==
@@ -653,10 +653,10 @@
     abitype "^0.9.8"
     lodash.memoize "^4.1.2"
 
-"@nomicfoundation/ignition-core@^0.15.4":
-  version "0.15.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ignition-core/-/ignition-core-0.15.4.tgz#92768dd851ccae92df3fddfa726540632aa01a57"
-  integrity sha512-i379lH+xOLFdaDv0KiNma550ZXCHc5ZkmKYhM44xyLMKBlvX6skUVFkgUjjN1gvprgOIxc17GVQXlR1R5FhGZA==
+"@nomicfoundation/ignition-core@^0.15.5":
+  version "0.15.5"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/ignition-core/-/ignition-core-0.15.5.tgz#38d19d29ffd425f7cc2810c45d7a51b31c626067"
+  integrity sha512-FgvuoIXhakRSP524JzNQ4BviyzBBKpsFaOWubPZ4XACLT4/7vGqlJ/7DIn0D2NL2anQ2qs98/BNBY9WccXUX1Q==
   dependencies:
     "@ethersproject/address" "5.6.1"
     "@nomicfoundation/solidity-analyzer" "^0.1.1"
@@ -668,10 +668,10 @@
     lodash "4.17.21"
     ndjson "2.0.0"
 
-"@nomicfoundation/ignition-ui@^0.15.4":
-  version "0.15.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/ignition-ui/-/ignition-ui-0.15.4.tgz#2e41a4048801689f2b4437d7242baa414aff69cf"
-  integrity sha512-cHbmuxmhso5n2zdIaaIW4p8NNzrFj0mrnv8ufhAZfM3s3IFrRoGc1zo8hI/n1CiOTPuqUbdZcB79d+2tCKtCNw==
+"@nomicfoundation/ignition-ui@^0.15.5":
+  version "0.15.5"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/ignition-ui/-/ignition-ui-0.15.5.tgz#ef9e11ccbffccc2360c02b20f12713756dfc37da"
+  integrity sha512-ZcE4rIn10qKahR4OqS8rl8NM2Fbg2QYiBXgMgj74ZI0++LlCcZgB5HyaBbX+lsnKHjTXtjYD3b+2mtg7jFbAMQ==
 
 "@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2":
   version "0.1.2"
@@ -4504,10 +4504,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@~5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
-  integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
+typescript@^5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.2.tgz#c26f023cb0054e657ce04f72583ea2d85f8d0507"
+  integrity sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==
 
 typical@^4.0.0:
   version "4.0.0"
