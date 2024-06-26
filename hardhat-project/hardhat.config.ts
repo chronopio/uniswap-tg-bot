@@ -1,6 +1,8 @@
 import type { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox-viem';
 import '@nomicfoundation/hardhat-network-helpers';
+import '@nomicfoundation/hardhat-ignition-viem';
+import '@nomicfoundation/hardhat-verify';
 import '@openzeppelin/hardhat-upgrades';
 import '@typechain/hardhat';
 import 'dotenv/config';
@@ -27,7 +29,20 @@ const config: HardhatUserConfig = {
                 mnemonic: process.env.MNEMONIC,
                 accountsBalance: '1000000000000000000000000'
             }
+        },
+        sepolia: {
+            chainId: 11155111,
+            url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
+            accounts: {
+                mnemonic: process.env.MNEMONIC
+            }
         }
+    },
+    etherscan: {
+        apiKey: process.env.ETHERSCAN_API_KEY
+    },
+    sourcify: {
+        enabled: true
     },
     mocha: {
         timeout: 60000
