@@ -1,0 +1,93 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x9BF5C9A4FaeE3D65a21c7b80dE58701fdfae5279",
+      "txHash": "0x0bf2931e37fac1de33b660a627a8b7741f9c8d29b1614066b4ed3a232e294d0c",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "0daba51bcb4e5718e8d30114f2cbf00ece7ad3f7f8bff23178065db7f8fa98ce": {
+      "address": "0xa2444Ec87176739cC052F54fD32E63b5e49f19fb",
+      "txHash": "0x48644b3b9d37582b4ecbd0e32423c3787c8f878b6e134cf98476adf9829737e4",
+      "layout": {
+        "solcVersion": "0.8.24",
+        "storage": [
+          {
+            "label": "swapRouter",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(ISwapRouter02)1200",
+            "contract": "SwiftSwap",
+            "src": "contracts/SwiftSwap.sol:17"
+          },
+          {
+            "label": "quoter",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_contract(IQuoterV2)453",
+            "contract": "SwiftSwap",
+            "src": "contracts/SwiftSwap.sol:18"
+          }
+        ],
+        "types": {
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)10_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_contract(IQuoterV2)453": {
+            "label": "contract IQuoterV2",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISwapRouter02)1200": {
+            "label": "contract ISwapRouter02",
+            "numberOfBytes": "20"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
