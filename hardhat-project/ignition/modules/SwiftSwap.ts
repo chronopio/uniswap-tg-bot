@@ -1,8 +1,8 @@
 import { buildModule } from '@nomicfoundation/hardhat-ignition/modules';
 
 // Sepolia
-const SWAP_ROUTER_ADDRESS = '0x94cC0AaC535CCDB3C01d6787D6413C739ae12bc4';
-const QUOTER_V2_ADDRESS = '0xC5290058841028F1614F3A6F0F5816cAd0df5E27';
+const SWAP_ROUTER_ADDRESS = '0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E';
+const QUOTER_V2_ADDRESS = '0xEd1f6473345F45b75F8179591dd5bA1888cf2FB3';
 
 const SwiftSwapModule = buildModule('SwiftSwapModule', (m) => {
     const swapRouterAddress = m.getParameter(
