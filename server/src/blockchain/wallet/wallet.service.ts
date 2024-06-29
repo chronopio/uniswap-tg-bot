@@ -1,5 +1,5 @@
-import type { HDNodeWallet } from 'ethers';
 import { Injectable } from '@nestjs/common';
+import type { HDNodeWallet } from 'ethers';
 import { Mnemonic, Wallet, ethers } from 'ethers';
 
 import { ProviderService } from '../provider/provider.service';

@@ -1,7 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { ProviderService } from './provider.service';
 import { ConfigModule } from '@nestjs/config';
+import { Test, TestingModule } from '@nestjs/testing';
 import { ethers } from 'ethers';
+import { ProviderService } from './provider.service';
 
 describe('ProviderService', () => {
   let service: ProviderService;
