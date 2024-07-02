@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 cd server
+echo "Running lint checks"
 yarn lint:check
+echo "Running tests"
 yarn test
 
 if [ $? -ne 0 ]; then
@@ -8,5 +10,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "All checks passed. Proceeding with push..."
 exit 0
 
