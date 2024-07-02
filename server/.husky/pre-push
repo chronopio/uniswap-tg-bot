@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+cd server
+yarn lint:check
+yarn test
+
+if [ $? -ne 0 ]; then
+    echo There are lint / test errors in the code. Please fix them before pushing. 1>&2
+    exit 1
+fi
+
+exit 0
+
