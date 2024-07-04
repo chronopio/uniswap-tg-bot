@@ -21,11 +21,17 @@ jobs:
                   node-version: '20.x'
                   cache: 'yarn'
                   cache-dependency-path: './server/yarn.lock'
-            - name: Install dependencies
+            - name: Install server dependencies
               run: yarn
             - name: Run eslint checks
               run: yarn lint:check
-            - name: Run test suite
+            - name: Run server test suite
               run: yarn test
               env:
                   ALCHEMY_API_KEY: ${{ secrets.ALCHEMY_API_KEY }}
+            - name: Run hardhat test suite
+              run: cd ../hardhat-project && yarn && yarn hardhat test
+              env:
+                  ALCHEMY_API_KEY: ${{ secrets.ALCHEMY_API_KEY }}
+                  MNEMONIC: ${{ secrets.MNEMONIC }}
+                  ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
