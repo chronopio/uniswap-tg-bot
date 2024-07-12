@@ -49,11 +49,12 @@ export default [
     },
 
     rules: {
-      "consistent-return": "off",
-      "no-underscore-dangle": "off",
-      "arrow-body-style": "off",
       "import/no-default-export": "error",
       "import/prefer-default-export": "off",
+      "no-unused-vars": "warn",
+      "class-methods-use-this": "off",
+      "@typescript-eslint/no-use-before-define": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
 
       "import/order": [
         2,
@@ -65,10 +66,6 @@ export default [
           groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
         },
       ],
-
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-use-before-define": "off",
-      "@typescript-eslint/no-unused-vars": "error",
     },
   },
   {
