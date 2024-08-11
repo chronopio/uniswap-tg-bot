@@ -18,4 +18,23 @@ export class BotService {
       `[Here](${this.configService.get<string>("FAUCET_URL")}) you can find some Sepolia ETH for free`,
     );
   }
+
+  async text(ctx: Context) {
+    await ctx.reply("I'm not sure what you mean, sorry!");
+  }
+
+  async sticker(ctx: Context) {
+    await ctx.replyWithSticker(
+      "CAACAgQAAxkBAAIC42a5EklHFhUBVbarURY6uUk1F4OWAAL7AQACRWLRAcCHiNxd99qzNQQ",
+    );
+  }
+
+  async help(ctx: Context) {
+    ctx.replyWithMarkdownV2(`
+      This is the list of available commands:
+      
+      • *Link to a faucet:* /faucet
+      • *List of commands:* /help 
+  `);
+  }
 }
