@@ -1,8 +1,9 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, UseInterceptors } from "@nestjs/common";
 import { Command, Ctx, Help, On, Start, Update } from "nestjs-telegraf";
 import { Context } from "telegraf";
-import { SceneContext } from "telegraf/typings/scenes";
 import { BotService } from "./bot-service/bot.service";
+import { CheckWalletInterceptor } from "./interceptors/check-wallet.interceptor";
+import { SwiftSwapContext } from "./types";
 
 // Update decorator acts as a controller for handling incoming messages
 @Update()
@@ -11,8 +12,19 @@ export class BotUpdate {
   constructor(private readonly botService: BotService) {}
 
   @Start()
-  async start(@Ctx() ctx: SceneContext) {
+  async start(@Ctx() ctx: SwiftSwapContext) {
     await this.botService.start(ctx);
+  }
+
+  @Command("token")
+  async fetchTokenPrice(@Ctx() ctx: SwiftSwapContext) {
+    await this.botService.fetchTokenPrice(ctx);
+  }
+
+  @Command("wallet")
+  @UseInterceptors(CheckWalletInterceptor)
+  async wallet(@Ctx() ctx: SwiftSwapContext) {
+    await this.botService.wallet(ctx);
   }
 
   @Command("faucet")
