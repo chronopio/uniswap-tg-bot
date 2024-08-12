@@ -5,5 +5,6 @@ import { CoingeckoService } from "./coingecko.service";
 @Module({
   imports: [ConfigModule],
   providers: [CoingeckoService],
+  exports: [CoingeckoService],
 })
 export class CoingeckoModule {}
