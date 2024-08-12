@@ -1,5 +1,5 @@
 import { Action, Context, Wizard, WizardStep } from "nestjs-telegraf";
-import { WalletWizardContext } from "./types/wallet-wizard-context";
+import { WalletWizardContext } from "./types";
 
 @Wizard("wallet")
 export class WalletWizard {
